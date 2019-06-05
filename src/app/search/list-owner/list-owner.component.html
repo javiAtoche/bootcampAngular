@@ -1,0 +1,8 @@
+<h3>Owners:</h3>
+  <ul>
+    <li *ngFor="let owner of owners; let i = index;">
+      <!-- {{owner.firstName}} {{owner.lastName}} - {{owner.city}} -->
+      <app-owner firstName={{owner.firstName}}  lastName={{owner.lastName}}  city={{owner.city}} (ownerEvent)="ownerSearch($event)"> </app-owner>
+      <p>{{msgEventOwner}}</p>
+    </li>
+  </ul>

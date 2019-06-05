@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { OwnerComponent } from './search/owner/owner.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListOwnerComponent } from './search/list-owner/list-owner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    OwnerComponent
+    OwnerComponent,
+    ListOwnerComponent
   ],
   imports: [
     BrowserModule,

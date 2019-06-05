@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {OwnerService} from '../owner.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-owner',
@@ -7,14 +7,24 @@ import {OwnerService} from '../owner.service';
   styleUrls: ['./owner.component.scss']
 })
 export class OwnerComponent implements OnInit {
-  public owners;
-  constructor(private ownerService: OwnerService) { }
+  
+  @Input() firstName:string;
+  @Input() lastName:string;
+  @Input() city:string;
+  @Output() ownerEvent = new EventEmitter();
+
+
+  constructor() { }
 
   ngOnInit() {
-    // debugger
-    this.ownerService.getOwners().subscribe(
-      data => {this.owners = data; }
-    )
+  
+  }
+
+  ownerSearch(){
+    
+    this.ownerEvent.emit({firstName: this.firstName,
+      lastName: this.lastName,
+      city: this.city});
   }
 
 }
