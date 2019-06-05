@@ -7,5 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bootcampAngular';
-  public inputEjercicio1: string;
+  public inputEjercicio1:string;
+
+  public labelBuscar:string ;
+  public labelPlaceHolder:string ;
+
+  public msgEventSearch:string;
+
+  constructor(){
+    this.labelBuscar = "Buscar";
+    this.labelPlaceHolder = "Ejemplo de búsqueda";
+  }
+
+  search(event){
+    this.msgEventSearch = event.query + ' => ' + event.resultado;
+  }
+
 }

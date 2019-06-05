@@ -19,5 +19,9 @@
 </ul> -->
 
 
-<app-search></app-search>
+<!-- 'labelBuscar' y 'labelPlaceHolder' son las variables de app.component.ts 
+y 'botonValue' y 'placeholder' son de search.component.ts -->
+<app-search botonValue={{labelBuscar}} placeholder={{labelPlaceHolder}}
+(searchEvent)="search($event)"></app-search>
+<p>{{msgEventSearch}}</p>
 <router-outlet></router-outlet>
