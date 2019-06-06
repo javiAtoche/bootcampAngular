@@ -1,0 +1,70 @@
+<form #ownerForm="ngForm" (ngSubmit)="onSubmit(ownerForm.value)">
+  <!-- first name -->
+  <div>
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" id="" 
+    required 
+    [(ngModel)]="owner.firstName"  
+    #firstName="ngModel"
+    >
+    <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+      <p>First Name es requerido!</p>
+    </div>
+  </div>
+  <br>
+  <!-- last name -->
+  <div>
+    <label for="lastName">Last Name: </label>
+    <input type="text" name="lastName" id="" 
+    required 
+    [(ngModel)]="owner.lastName"  
+    #lastName="ngModel"
+    >
+    <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+        <p>Last Name es requerido!</p>
+    </div>
+  </div>
+  <br>
+  <!-- address -->
+  <div>
+    <label for="address">Address: </label>
+    <input type="text" name="address" id="" 
+    required 
+    [(ngModel)]="owner.address"  
+    #address="ngModel">
+  </div>
+  <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+      <p>Address es requerido!</p>
+  </div>
+  <br>
+  <!-- city -->
+  <div>
+    <label for="city">City: </label>
+    <input type="text" name="city" id="" 
+    required 
+    [(ngModel)]="owner.city"  
+    #city="ngModel">
+  </div>
+  <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+      <p>City es requerido!</p>
+  </div>
+  <br>
+  <!-- telephone -->
+  <div>
+    <label for="telephone">Telephone: </label>
+    <input type="text" name="telephone" id="" 
+    required 
+    [(ngModel)]="owner.telephone"  
+    #telephone="ngModel">
+  </div>
+  <div [hidden]="telephone.valid || telephone.pristine" class="alert alert-danger">
+      <p>telephone es requerido!</p>
+  </div>
+  <br>
+  <!-- pets -->
+  <!-- <div>
+    <label for="pets">Pets:</label>
+  </div> -->
+  <input type="submit" value="Añadir" [disabled]="!ownerForm.valid">
+  <br>
+</form>

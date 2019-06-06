@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Owner} from '../models/owner';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,9 +20,20 @@ export class OwnerService {
   // public pets:any[];
 
   constructor(private httpClient: HttpClient) { }
-
+  
   getOwners(){
-    return this.httpClient.get('http://10.125.124.71:9966/petclinic/api/owners');
+    return this.httpClient.get<Owner[]>('http://10.125.124.71:9966/petclinic/api/owners');
+  }
+
+  getOwnerById(ownerId: Number){
+    return this.httpClient.get<Owner>('http://10.125.124.71:9966/petclinic/api/owners'+'/'+ownerId);
+  }
+
+  addOwner(owner: Owner): Observable<Owner>{
+    const headers = new HttpHeaders();
+    headers.append('Content-Type','application/json');
+    headers.append('Accept','application/json');
+    return this.httpClient.post<Owner>('http://10.125.124.71:9966/petclinic/api/owners',owner,{headers});
   }
 
 }

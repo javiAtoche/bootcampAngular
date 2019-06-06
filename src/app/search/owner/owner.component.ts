@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Owner } from 'src/app/models/owner';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OwnerService } from '../owner.service';
 
 
 @Component({
@@ -8,23 +11,32 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class OwnerComponent implements OnInit {
   
-  @Input() firstName:string;
-  @Input() lastName:string;
-  @Input() city:string;
-  @Output() ownerEvent = new EventEmitter();
+  // @Input() private firstName:string;
+  // @Input() private lastName:string;
+  // @Input() private city:string;
+  // @Output() private ownerEvent = new EventEmitter();
+
+   owner:Owner;
+   errorMessage:string;
 
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,private router: Router,private ownerService: OwnerService) { 
+    this.owner = <Owner>{};
+  }
 
   ngOnInit() {
-  
+    const ownerId = this.route.snapshot.params['id'];
+    this.ownerService.getOwnerById(ownerId).subscribe(
+      owner => this.owner = owner,
+      error => this.errorMessage = <any> error
+    );
   }
 
-  ownerSearch(){
+  // ownerSearch(){
     
-    this.ownerEvent.emit({firstName: this.firstName,
-      lastName: this.lastName,
-      city: this.city});
-  }
+  //   this.ownerEvent.emit({firstName: this.firstName,
+  //     lastName: this.lastName,
+  //     city: this.city});
+  // }
 
 }

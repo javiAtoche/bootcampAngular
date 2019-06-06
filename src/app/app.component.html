@@ -21,7 +21,14 @@
 
 <!-- 'labelBuscar' y 'labelPlaceHolder' son las variables de app.component.ts 
 y 'botonValue' y 'placeholder' son de search.component.ts -->
-<app-search botonValue={{labelBuscar}} placeholder={{labelPlaceHolder}}
+<!-- <app-search botonValue={{labelBuscar}} placeholder={{labelPlaceHolder}}
 (searchEvent)="search($event)"></app-search>
-<p>{{msgEventSearch}}</p>
+<p>{{msgEventSearch}}</p> -->
+
+<ul>
+  <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+  <li><a routerLink="/search" routerLinkActive="active">Search</a></li>
+  <li><a routerLink="/list-owner" routerLinkActive="active">List Owner</a></li>
+  <li><a routerLink="/owners-add" routerLinkActive="active">Add Owners</a></li>
+</ul>
 <router-outlet></router-outlet>

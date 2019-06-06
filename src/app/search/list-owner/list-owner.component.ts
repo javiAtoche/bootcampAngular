@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwnerService } from '../owner.service';
+import { Owner } from 'src/app/models/owner';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-owner',
@@ -8,10 +11,10 @@ import { OwnerService } from '../owner.service';
 })
 export class ListOwnerComponent implements OnInit {
    
-  public owners;
-  public msgEventOwner:string;
+  public owners: Array<Owner>;
+  // public msgEventOwner:string;
 
-  constructor(private ownerService: OwnerService) { }
+  constructor(private ownerService: OwnerService, private router: Router) { }
 
   ngOnInit() {
     // debugger
@@ -20,7 +23,13 @@ export class ListOwnerComponent implements OnInit {
     )
   }
 
-  ownerSearch(event){
-    this.msgEventOwner = event.query + ' => ' + event.resultado;
-  }
+  // onSelect(owner: Owner){
+  //   this.router.navigate(['/list-owner',owner.id]);
+  // }
+
+  
+
+  // ownerSearch(event){
+  //   this.msgEventOwner = event.query + ' => ' + event.resultado;
+  // }
 }

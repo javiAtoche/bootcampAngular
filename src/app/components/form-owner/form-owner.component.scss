@@ -1,0 +1,32 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 10rem;
+}
+form > div{
+    flex: 1 1 2rem;
+}
+form input[type*="submit"]{
+    width: 100%;
+}
+
+input.ng-valid{
+    border-left: 5px solid #42A948; /*Green*/
+    color: #42A948;
+}
+
+input.ng-invalid{
+    border-left: 5px solid #ee2618; /*Red*/
+    color: #ee2618;
+}
+
+input.ng-invalid::placeholder{
+    content: 'requerido';
+}
+
+.alert-danger{
+    color: #ee2618; /*Red*/
+}
+

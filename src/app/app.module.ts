@@ -8,13 +8,17 @@ import { SearchComponent } from './search/search.component';
 import { OwnerComponent } from './search/owner/owner.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListOwnerComponent } from './search/list-owner/list-owner.component';
+import { HomeComponent } from './home/home.component';
+import { FormOwnerComponent } from './components/form-owner/form-owner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     OwnerComponent,
-    ListOwnerComponent
+    ListOwnerComponent,
+    HomeComponent,
+    FormOwnerComponent
   ],
   imports: [
     BrowserModule,
